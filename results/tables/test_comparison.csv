@@ -1,12 +1,12 @@
 method,accuracy,disagreement,answer_change_rate,tokens/q,latency
-single direct,0.86,,,130.02,0.3121
-single justified,0.8967,,,198.4667,1.7751
-independent vote@3,0.9067,0.0433,,598.28,3.5988
-independent x3 + judge,0.9,0.0433,,1051.4667,6.7747
-self-revision (2 rounds),0.8133,,0.14,805.2233,7.0
-debate-free + majority,0.8833,0.0467,0.05,3381.5933,13.7094
-debate-free + judge,0.88,0.0467,0.05,3852.0033,16.5925
-"independent vote, debate-free token budget (max 9 samples)",0.91,0.0381,,1795.1333,3.9956
-debate-structured + majority,0.9033,0.03,0.0178,3855.1733,15.8518
-debate-structured + judge,0.9,0.03,0.0178,4384.3967,19.4134
-"independent vote, debate-structured token budget (max 9 samples)",0.91,0.0381,,1795.1333,3.9956
+single direct,0.7233,,,138.5333,0.3074
+single justified,0.74,,,201.1433,1.2444
+independent vote@3,0.7333,0.13,,610.21,2.5754
+independent x3 + judge,0.7467,0.13,,1053.2667,4.6924
+self-revision (2 rounds),0.5467,,0.3833,785.58,4.7129
+debate-free + majority,0.7,0.2122,0.1556,3339.2967,8.7123
+debate-free + judge,0.67,0.2122,0.1556,3824.59,10.7504
+"independent vote, debate-free token budget (max 9 samples)",0.7467,0.1212,,1829.23,2.8008
+debate-structured + majority,0.7067,0.1844,0.1167,3820.64,10.6336
+debate-structured + judge,0.72,0.1844,0.1167,4351.2667,12.3435
+"independent vote, debate-structured token budget (max 9 samples)",0.7467,0.1212,,1829.23,2.8008
