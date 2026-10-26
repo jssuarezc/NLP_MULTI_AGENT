@@ -92,5 +92,5 @@ After the process is complete, proceed to the Notebook to run each of the cell t
 **Note:** All tables, plots, transcripts are stored in the folder as you go.
 
 **PS:** All outputs are generated using the following
-* **Model:** qwen2.5:7b-instruct-q4_K_M
+* **Model:** gemma2:2b
 * **Dataset:** ARC-Challenge -> https://huggingface.co/datasets/allenai/ai2_arc
