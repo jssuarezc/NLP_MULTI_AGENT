@@ -1,8 +1,0 @@
-,q_words,q_words,q_words,q_chars,q_chars,q_chars,n_options,n_options,n_options,mean_option_words,mean_option_words,mean_option_words
-,mean,median,max,mean,median,max,mean,median,max,mean,median,max
-set,,,,,,,,,,,,
-dev (sampled),22.72,19.0,96,134.69,107.0,560,4.01,4.0,5,4.64,4.25,13.0
-raw-test,22.56,19.0,131,131.57,112.0,831,4.0,4.0,5,4.93,4.75,28.25
-raw-train,21.76,18.0,110,126.37,106.0,683,4.0,4.0,5,4.82,4.5,18.5
-raw-validation,22.84,20.0,96,133.83,113.0,560,3.99,4.0,5,4.86,4.75,25.0
-test (sampled),22.82,19.0,90,132.01,111.0,501,4.0,4.0,5,5.05,5.0,16.25

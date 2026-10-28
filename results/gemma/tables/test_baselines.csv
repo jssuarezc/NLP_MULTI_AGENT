@@ -1,5 +1,0 @@
-method,accuracy,tokens/question,latency,unparsed
-single: direct (T=0),0.7233,138.5333,0.3074,0.0
-single: + justification (T=0),0.74,201.1433,1.2444,0.0
-"independent x3 direct, majority",0.7267,415.5967,0.4998,0.0
-"independent x3 justified, majority",0.7333,610.21,2.5754,0.0

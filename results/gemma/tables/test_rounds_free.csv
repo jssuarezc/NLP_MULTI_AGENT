@@ -1,4 +1,0 @@
-round,majority_acc,mean_agent_acc,pairwise_disagreement,unanimous_rate,unanimous_wrong_rate,unanimous_correct_rate,unparsed_rate
-0,0.7333,0.7267,0.13,0.8133,0.1733,0.64,0.0
-1,0.7433,0.7189,0.2111,0.6967,0.1167,0.58,0.0
-2,0.7,0.6911,0.2122,0.7033,0.1433,0.56,0.0033
