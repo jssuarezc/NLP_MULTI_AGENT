@@ -1,0 +1,3 @@
+protocol,acc without ICL,acc with ICL,fixed by ICL,broken by ICL,p (McNemar),agent correct->incorrect (without),(with),agent incorrect->correct (without),(with) 
+free,0.74,0.6733,19,39,0.0119,58/660 (8.8%),141/660 (21.4%),49/240 (20.4%),64/240 (26.7%)
+structured,0.7567,0.7633,10,8,0.8145,24/660 (3.6%),30/660 (4.5%),39/240 (16.2%),58/240 (24.2%)
