@@ -55,7 +55,7 @@ def majority_vote(answers, qid: str = "", rule: str = config.TIE_BREAK, seed: in
       rule="hash"        -> pick tied option number (sha256(seed|qid) mod #tied) in alphabetical order.
                             Deterministic, independent of option position and of agent order.
       rule="first_agent" -> the tied option given by the lowest-indexed agent.
-      rule="lowest"      -> alphabetically first tied option (biased toward A; for ablation only).
+      rule="lowest"      -> alphabetically first tied option (biased toward A).
     All-None input yields answer None.
     """
     valid = [a for a in answers if a is not None]
@@ -83,7 +83,6 @@ def is_correct(answer, gold) -> bool:
 
 
 def pairwise_disagreement(answers) -> float:
-    """Fraction of agent pairs giving different answers (None counts as its own answer)."""
     pairs = list(combinations(answers, 2))
     return sum(a != b for a, b in pairs) / len(pairs) if pairs else 0.0
 
@@ -94,7 +93,6 @@ def is_unanimous(answers) -> bool:
 
 # Trajectories and per-round summaries
 def padded_trajectory(rec: dict, n_rounds: int | None = None) -> list[list]:
-    """answers_by_round, padded by repeating the last round (needed after early stopping)."""
     traj = [list(r) for r in rec["answers_by_round"]]
     target = n_rounds if n_rounds is not None else rec.get("max_rounds", len(traj) - 1) + 1
     while len(traj) < target:

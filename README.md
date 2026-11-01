@@ -21,6 +21,7 @@ NLP_MULTI_AGENT/
 │   └── run_experiments.py   
 └── results/
     ├── transcripts/
+    ├── tables/
     └── plots/
 ```
 
@@ -51,13 +52,6 @@ All output is dumped here
 * **`plots/`**: Exported figures with top words, development and test content lengths, accuracy comparisons.
 * **`tables/`**: All output tables from development and test outputs.
 
-## KEEP IN MIND !!
-
-Run this command once inside NLP_MULTI_AGENT so we avoid merging issues due to notebook options
-
-```text
-nbstripout --install
-```
 
 ## SETTING UP
 * Pull the repository and run the command below to create a local environment file for the project.
@@ -87,7 +81,7 @@ python -m src.run_experiments --split dev              # everything on the 100 d
 python -m src.run_experiments --split test             # final 300-question run
 ```
 
-After the process is complete, proceed to the Notebook to run each of the cell to view the outputs.
+After the process is complete, proceed to the Notebook to run each of the cell to view the outputs. Click on run on each cell
 
 **Note:** All tables, plots, transcripts are stored in the folder as you go.
 
