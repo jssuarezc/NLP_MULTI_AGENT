@@ -1,14 +1,14 @@
 metric,num,den,rate,denominator
-Agent correct -> incorrect,125,616,0.20292207792207792,of agents correct at start
-Agent incorrect -> correct,87,284,0.30633802816901406,of agents incorrect at start
-Agent changed answer,259,900,0.2877777777777778,of all agents
-Majority vote correct -> incorrect,22,234,0.09401709401709402,of questions with correct vote at start
-Majority vote incorrect -> correct,13,66,0.19696969696969696,of questions with incorrect vote at start
-Correct minority: group vote correct after,6,15,0.4,of questions with a correct minority
-Correct minority: unanimous correct after,2,15,0.13333333333333333,of questions with a correct minority
-Correct minority: wrong agents converted,9,30,0.3,of wrong agents in those questions
-Correct minority: correct agents abandoned,5,15,0.3333333333333333,of correct agents in those questions
-Wrong majority pulls correct agent to that answer,5,15,0.3333333333333333,of correct agents facing a unified wrong majority
-Wrong majority: correct agent ends incorrect (any),5,15,0.3333333333333333,of correct agents facing a unified wrong majority
-Control: correct agent (no wrong majority) ends incorrect,120,601,0.19966722129783693,of correct agents not facing a wrong majority
-Correct majority converts incorrect agent,46,81,0.5679012345679012,of incorrect agents facing a correct majority
+Agent correct -> incorrect,62,712,0.08707865168539326,of agents correct at start
+Agent incorrect -> correct,34,188,0.18085106382978725,of agents incorrect at start
+Agent changed answer,129,900,0.14333333333333334,of all agents
+Majority vote correct -> incorrect,13,245,0.053061224489795916,of questions with correct vote at start
+Majority vote incorrect -> correct,7,55,0.12727272727272726,of questions with incorrect vote at start
+Correct minority: group vote correct after,5,18,0.2777777777777778,of questions with a correct minority
+Correct minority: unanimous correct after,0,18,0.0,of questions with a correct minority
+Correct minority: wrong agents converted,7,36,0.19444444444444445,of wrong agents in those questions
+Correct minority: correct agents abandoned,10,18,0.5555555555555556,of correct agents in those questions
+Wrong majority pulls correct agent to that answer,7,18,0.3888888888888889,of correct agents facing a unified wrong majority
+Wrong majority: correct agent ends incorrect (any),10,18,0.5555555555555556,of correct agents facing a unified wrong majority
+Control: correct agent (no wrong majority) ends incorrect,52,694,0.07492795389048991,of correct agents not facing a wrong majority
+Correct majority converts incorrect agent,15,37,0.40540540540540543,of incorrect agents facing a correct majority
