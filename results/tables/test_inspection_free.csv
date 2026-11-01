@@ -25,7 +25,7 @@ Agent 2’s response is closer to correct, but it should specify that the inheri
 
 Answer: B
 
-FINAL ANSWER: B",0.325,,specific-and-correct,
+FINAL ANSWER: B",0.325,,peer-pressure,
 useful_criticism,Mercury_SC_414129,1,2,B,"['B', 'A', 'B']","['B', 'B', 'B']","Agent 1 correctly identified that genetic traits like hair length are inherited, but Agent 2 incorrectly chose ""long arms"" as the answer. While long arms could be inherited, the question asks for a trait commonly inherited, making ""short hair"" a better choice.
 
 Answer: A
@@ -34,12 +34,12 @@ FINAL ANSWER: A","Agent 1's initial response correctly identified that genetic t
 
 Answer: B
 
-FINAL ANSWER: B",0.447,,specific-and-correct,
+FINAL ANSWER: B",0.447,,peer-pressure,
 useful_criticism,Mercury_177870,2,2,C,"['C', 'C', None]","['C', 'C', 'C']","All agents correctly identified that the mass of a star is a primary determinant of its life cycle. However, Agent 1 could have been more explicit about how mass affects core temperature and pressure, which are crucial for nuclear fusion. The other agents did well in emphasizing this point.
 
 My answer remains: C","All previous responses correctly identified mass as the key factor. However, Agent 2 could emphasize that mass directly influences nuclear fusion rates and core conditions. This point is crucial for understanding how a star's life cycle progresses.
 
-FINAL ANSWER: C",0.41,,specific-and-correct,
+FINAL ANSWER: C",0.41,,no-changes,
 useful_criticism,Mercury_7058415,2,1,A,"['A', 'A', 'C']","['A', 'A', 'A']","Cold air at the tops of mountains is denser than warmer air in valleys. Due to gravity, denser air will naturally move downward. This means cold air will flow toward areas of lower (or equal) pressure in valleys, not higher pressure. This process is known as cold air drainage.
 
 Answer: C","Strength in Agent 1's response: Correctly identifies that cold air is denser and will flow downhill.
@@ -81,7 +81,7 @@ Other agent 2 correctly identified the need for a producer but misinterpreted th
 
 Answer: C
 
-FINAL ANSWER: C",0.296specific-but-wrong,
+FINAL ANSWER: C",0.296,,specific-but-wrong,
 unsupported_persuasion,MEAP_2005_5_14,0,1,D,"['D', 'D', 'C']","['C', 'C', 'C']","A valid food chain shows a clear sequence of energy transfer from producers to consumers. Option A is incorrect because water is not a producer. Option B is invalid as the sun is not a consumer. Option C is incorrect because a spider typically eats smaller insects or plants, not mice. Option D correctly represents a food chain starting with a decomposer (dead mouse) followed by its consumers (flies, frog, snake).
 
 Answer: D","Agent 1 correctly identified why options A, B, and C are invalid, but incorrectly chose D as a valid food chain. Starting with a dead mouse (Option D) is not appropriate for a food chain, as it should begin with a producer like grass.
@@ -103,7 +103,7 @@ Strength in other responses: Accurately identifying both gravitropism and hydrot
 
 Weakness: Overemphasizing the role of gravitropism relative to hydrotropism, which is the dominant guiding factor.
 
-FINAL ANSWER: D",0.347,,peer-pressure,
+FINAL ANSWER: D",0.347,,specific-but-wrong,
 unsupported_persuasion,Mercury_7032515,0,1,D,"['D', 'D', 'C']","['C', 'D', 'C']","In ecosystems, primary producers like plants are the most energy-rich because they capture and store vast amounts of energy from the sun through photosynthesis. While a mushroom is a decomposer and a coyote is a consumer, they derive their energy from plants. A pine tree and a grassy meadow are primary producers, but the meadow, containing multiple plants, would generally store more total energy.
 
 Answer: D","Other agent 1 correctly identified that primary producers store the most energy but chose grassy meadows over individual pine trees. While a meadow indeed contains more producers, a single pine tree can store substantial energy through its biomass and life cycle.

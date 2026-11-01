@@ -70,7 +70,7 @@ def run_independent(client: LLMClient, q: Question, n: int = config.N_AGENTS, mo
 
 
 def run_self_revision(client: LLMClient, q: Question, rounds: int = config.MAX_ROUNDS) -> dict:
-    """One agent re-examines its own previous response for `rounds` rounds (starts from sample 0)."""
+    """One agent revises its own answer for several rounds, seeing only its own previous response."""
     qb = _qb(q)
     calls = [sample_independent(client, q, 0, "justify")]
     answers = [[calls[0]["answer"]]]
@@ -99,13 +99,11 @@ def judge_decide(client: LLMClient, q: Question, texts: list[str], role: str, rn
 # Debate
 def run_debate(client: LLMClient, q: Question, protocol: str = "structured",
                n_agents: int = config.N_AGENTS, rounds: int = config.MAX_ROUNDS,
-               early_stop: bool = False, judge_final: bool = True, judge_round0: bool = True) -> dict:
-    """Synchronous multi-agent debate.
-    Round 0: independent justified answers (identical to the independent baseline).
-    Rounds 1..R: every agent receives its own previous response plus all other agents' previous
-    responses (anonymised, same snapshot for everyone) and answers in the protocol's format.
-    """
+               early_stop: bool = False, judge_final: bool = True, judge_round0: bool = True,
+               icl: bool = False) -> dict:
+    """Synchronous debate between n_agents, with optional ICL examples and LLM judge."""
     assert protocol in ("free", "structured")
+    assert isinstance(icl, bool), "icl must be True or False"
     qb = _qb(q)
     r0 = _parallel([lambda k=k: sample_independent(client, q, k, "justify") for k in range(n_agents)])
     calls = list(r0)
@@ -119,19 +117,22 @@ def run_debate(client: LLMClient, q: Question, protocol: str = "structured",
             stopped_after = r - 1
             break
         prompts_r = []
-        for i in range(n_agents):  # all prompts built from the same previous-round snapshot
+        for i in range(n_agents):
             others = [prev_texts[j] for j in range(n_agents) if j != i]
-            prompts_r.append(prompts.build_debate(qb, protocol, prev_texts[i], others))
+            prompts_r.append(prompts.build_debate(qb, protocol, prev_texts[i], others, icl=icl))
+        tag_suffix = "-icl" if icl else ""
         cur = _parallel([
             (lambda i=i, s=s, u=u: _call(client, q, s, u, "debate", role="agent", agent=i, rnd=r,
-                                         cache_tag=f"{q.id}|debate-{protocol}|r{r}|a{i}"))
+                                         cache_tag=f"{q.id}|debate-{protocol}{tag_suffix}|r{r}|a{i}"))
             for i, (s, u) in enumerate(prompts_r)])
         calls += cur
         prev_texts = [c["text"] for c in cur]
         answers_by_round.append([c["answer"] for c in cur])
 
-    rec = _base(q, mode=f"debate_{protocol}", protocol=protocol, n_agents=n_agents, max_rounds=rounds,
-                early_stopped_after_round=stopped_after, answers_by_round=answers_by_round)
+    rec = _base(q, mode=debate_name(protocol, icl), protocol=protocol, icl=icl,
+               icl_version=prompts.ICL_VERSION if icl else None,
+               n_agents=n_agents, max_rounds=rounds,
+               early_stopped_after_round=stopped_after, answers_by_round=answers_by_round)
 
     if judge_round0:
         j0 = judge_decide(client, q, [c["text"] for c in r0], "judge_round0", 0)
@@ -147,6 +148,11 @@ def run_debate(client: LLMClient, q: Question, protocol: str = "structured",
 
 
 # Dataset runner
+def debate_name(protocol: str, icl: bool = False) -> str:
+    """Returns a unique name for a debate variant, used in transcript filenames. protocol: "free" | "structured"."""
+    return f"debate_{protocol}{'_icl' if icl else ''}"
+
+
 def transcript_path(split: str, name: str) -> Path:
     return config.TRANSCRIPT_DIR / f"{split}_{name}.jsonl"
 
@@ -160,15 +166,16 @@ def load_records(path: Path) -> list[dict]:
 
 
 def run_dataset(fn: Callable[[Question], dict], questions: list[Question], out_path: Path,
-                workers: int | None = None, resume: bool = True, desc: str = "") -> list[dict]:
-    """Apply fn to every question in parallel, appending each record to a JSONL transcript.
+                workers: int | None = None, resume: bool = True, desc: str = "",
+                expect: dict | None = None) -> list[dict]:
 
-    Re-running skips questions already in the file, so an interrupted run resumes cheaply.
-    Returns records in the order of 'questions'.
-    """
     config.ensure_dirs()
     out_path = Path(out_path)
     done = {r["qid"]: r for r in load_records(out_path)} if resume else {}
+    if expect:
+        stale = [qid for qid, r in done.items() if any((r.get(k) or None) != (v or None) for k, v in expect.items())]
+        if stale:
+            raise ValueError(f"{out_path.name}: {len(stale)} stored record(s) do not match {expect} ")
     if not resume and out_path.exists():
         out_path.unlink()
     todo = [q for q in questions if q.id not in done]
