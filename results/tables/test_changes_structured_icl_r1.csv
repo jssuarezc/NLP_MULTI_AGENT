@@ -1,0 +1,14 @@
+metric,num,den,rate,denominator
+Agent correct -> incorrect,30,804,0.03731343283582089,of agents correct at start
+Agent incorrect -> correct,33,96,0.34375,of agents incorrect at start
+Agent changed answer,67,900,0.07444444444444444,of all agents
+Majority vote correct -> incorrect,7,268,0.026119402985074626,of questions with correct vote at start
+Majority vote incorrect -> correct,8,32,0.25,of questions with incorrect vote at start
+Correct minority: group vote correct after,7,11,0.6363636363636364,of questions with a correct minority
+Correct minority: unanimous correct after,1,11,0.09090909090909091,of questions with a correct minority
+Correct minority: wrong agents converted,17,22,0.7727272727272727,of wrong agents in those questions
+Correct minority: correct agents abandoned,10,11,0.9090909090909091,of correct agents in those questions
+Wrong majority pulls correct agent to that answer,10,11,0.9090909090909091,of correct agents facing a unified wrong majority
+Wrong majority: correct agent ends incorrect (any),10,11,0.9090909090909091,of correct agents facing a unified wrong majority
+Control: correct agent (no wrong majority) ends incorrect,20,793,0.025220680958385876,of correct agents not facing a wrong majority
+Correct majority converts incorrect agent,12,12,1.0,of incorrect agents facing a correct majority

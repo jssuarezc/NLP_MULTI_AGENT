@@ -1,12 +1,14 @@
 method,accuracy,disagreement,answer_change_rate,tokens/q,latency
-single direct,0.7233,,,138.5333,0.3074
-single justified,0.74,,,201.1433,1.2444
-independent vote@3,0.7333,0.13,,610.21,2.5754
-independent x3 + judge,0.7467,0.13,,1053.2667,4.6924
-self-revision (2 rounds),0.5467,,0.3833,785.58,4.7129
-debate-free + majority,0.7,0.2122,0.1556,3339.2967,8.7123
-debate-free + judge,0.67,0.2122,0.1556,3824.59,10.7504
-"independent vote, debate-free token budget (max 9 samples)",0.7467,0.1212,,1829.23,2.8008
-debate-structured + majority,0.7067,0.1844,0.1167,3820.64,10.6336
-debate-structured + judge,0.72,0.1844,0.1167,4351.2667,12.3435
-"independent vote, debate-structured token budget (max 9 samples)",0.7467,0.1212,,1829.23,2.8008
+single direct,0.8833,,,133.5333,1.5895
+single justified,0.9033,,,194.86,6.7519
+independent vote@3,0.8933,0.06,,582.3333,13.0004
+independent x3 + judge,0.9,0.06,,1009.5333,23.417
+self-revision (2 rounds),0.7567,,0.22,725.7533,21.5149
+debate-free + majority,0.91,0.0244,0.0244,2984.0367,42.2204
+debate-free + judge,0.9,0.0244,0.0244,3408.9233,52.5046
+debate-free + ICL + majority,0.8633,0.0944,0.1011,10250.4967,57.8976
+debate-free + ICL + judge,0.8567,0.0944,0.1011,10700.89,71.6246
+debate-structured + majority,0.8967,0.0444,0.0122,3585.85,56.9553
+debate-structured + judge,0.8933,0.0444,0.0122,4099.0467,70.6942
+debate-structured + ICL + majority,0.8933,0.05,0.0644,10995.77,70.6246
+debate-structured + ICL + judge,0.8967,0.05,0.0644,11523.54,86.3896
